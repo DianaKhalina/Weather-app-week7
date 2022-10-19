@@ -12,7 +12,8 @@ ul {
 
 li {
     list-style: none;
-    color: #70757a;;
+    color: #70757a;
+    text-transform: capitalize;
 }
 .weather-app-wrapper {
     max-width: 600px;
@@ -37,7 +38,7 @@ width: 64px;
 
 .weather-temperature strong {
     color: black;
-    font-size: 65px;
+    font-size: 64px;
 font-weight: 400;
 line-height: 1;
 }

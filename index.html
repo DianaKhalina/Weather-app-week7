@@ -51,7 +51,8 @@
         <div class="col-6">
             <div class="d-flex  weather-temperature">
                 <img src="" alt="Weather-icon"  class="float-left" id="icon">
-                <div class="float-left"><strong id="temperature"></strong><span class="units">°C|<a href="#">°F</a></span></div>
+                <div class="float-left"><strong id="temperature"></strong><span class="units" id="units">°C</span></div>
+               <!-- <div class="float-left"><strong id="temperature"></strong><span class="units">°C|<a href="#">°F</a></span></div> -->
             </div>
         </div>
         <div class="col-6">
@@ -61,7 +62,9 @@
                 <li>Wind: <span id="wind"></span> km/h </li>
             </ul>
         </div>
+        <small class="convert">Convert temp to <a href="#" id="celsius-link" class="active">Celsius</a> / <a href="#" id="fahrenheit-link">Fahrenheit</a></small>
     </div>
+    
 </div>
     <small> <a href="https://github.com/DianaKhalina/Weather-app-week7" target="_blank">Open-source</a> by Diana Khalina </small>
 </div>

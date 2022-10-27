@@ -13,6 +13,26 @@ let day = date.getDay();
 return `${days[day]} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+    let forecastElement = document.querySelector("#forecast");
+let forecastHTML = `<div class="row">`;
+let days = ["Thu", "Fri", "Sat", "Sun"];
+days.forEach(function (day) {
+    forecastHTML = forecastHTML + `<div class="col-2">
+    <div class="weather-forecast-date">${day}</div>
+     <img src="file:///C:/Users/user/Documents/GitHub/Weather-app-week7/src/img/04d.png" alt="" width="34" />
+     <div class="weather-forecast-temperatures">
+    <span class="weather-forecast-temperature-max">18°</span> <span class="weather-forecast-temperature-min">12°</span>
+ </div>
+ </div>
+`;
+});
+
+            
+            forecastHTML = forecastHTML + `</div>`;
+            forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
@@ -21,7 +41,6 @@ function displayTemperature(response) {
     let windElement = document.querySelector("#wind");
     let dateElement = document.querySelector("#date");
     let iconElement = document.querySelector("#icon");
-
     celsiusTemperature = response.data.main.temp; 
     
     unitsElement.innerHTML = `°C`;
@@ -73,7 +92,7 @@ function displayCelsiusTemperature(event){
 let celsiusTemperature = null;
 let unitsElement = document.querySelector("#units");
 search("Kyiv");
-
+displayForecast();
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 

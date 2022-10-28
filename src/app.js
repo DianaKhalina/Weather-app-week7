@@ -1,3 +1,5 @@
+ 
+
 function formatDate(timestamp){
 let date = new Date(timestamp);
 let hours = date.getHours();
@@ -50,6 +52,7 @@ axios.get(apiUrl).then(displayForecast);
 }
 
 
+
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
@@ -73,6 +76,17 @@ function displayTemperature(response) {
 
     getForecast(response.data.coord);
 }
+function retrievePosition(position) {
+    let apiKey = "209f33579f32165aac3b50595a16eef6";
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    axios.get(url).then(displayTemperature);
+  
+  }
+function navigatorStart(){
+    navigator.geolocation.getCurrentPosition(retrievePosition);
+  }
 
 function search(city) {
     let apiKey = "209f33579f32165aac3b50595a16eef6";
@@ -92,3 +106,5 @@ search("Kyiv");
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+let currentButton = document.querySelector("#button-current");
+currentButton.addEventListener("click", navigatorStart);

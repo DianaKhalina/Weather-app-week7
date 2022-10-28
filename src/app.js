@@ -21,7 +21,6 @@ return days[day];
 }
 function displayForecast(response) {
     let forecast = response.data.daily;
-    console.log(forecast);
     let forecastElement = document.querySelector("#forecast");
 let forecastHTML = `<div class="row">`;
 
@@ -85,7 +84,6 @@ function handleSubmit(event){
     event.preventDefault();
     let inputCityElemnt = document.querySelector("#input-city");
     search(inputCityElemnt.value);
-    console.log(inputCityElemnt.value);
 }
 
 
